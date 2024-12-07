@@ -29,7 +29,7 @@
     font-family: inter;
 }
 
-a{
+a {
     color: #2E7CEE;
 }
 
@@ -38,8 +38,11 @@ body {
     height: 100%;
     overflow: hidden;
     position: relative;
-    background-color: rgba(42, 55, 71, 0.4);
-    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 .main {
@@ -61,7 +64,7 @@ body {
 ::-webkit-scrollbar-thumb {
     background-color: #2DABE2;
     border-radius: 10px;
-    border: 2px solid #f0f0f0; 
+    border: 2px solid #f0f0f0;
 }
 
 ::-webkit-scrollbar-thumb:hover {

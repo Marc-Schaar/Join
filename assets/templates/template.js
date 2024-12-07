@@ -48,7 +48,7 @@ function mobileSidebar() {
 
 function desktopSidebar() {
     return /*html*/ `<aside class="sidebar-desktop">
-        <img class="sidebar-logo-desktop" src="./assets/icons/join-logo-light.png" alt="">
+        <img src="./assets/icons/join-logo-light.png" alt="">
         <nav class="sidebar-nav">
 
             <a class="nav-link-desktop" id="summary-link" href="summary.html"><img src="./assets/icons/summary-icon.png" > Summary</a>
@@ -77,7 +77,7 @@ function generateTaskHTML(task, index, className) {
                     <li onclick="moveTaskTo(${task.id}, 'done');stopEventBubbling(event)">Done</li>
                 </ul>
               </span>
-              <h4 class="task-title">${task.title}</h4>
+              <h4>${task.title}</h4>
               <div class="task-description">${task.description}</div>
               <div class="d-flex task-amount-container">
                   <div id="${task.category}progress-bar${index}" class="progress-bar d-none">
@@ -102,7 +102,9 @@ function contactCirleHTML(detail) {
     return /*html*/ `
     <div class="detail-container">
         <div class="contact-name-details">
-            <span class="name-initals" style="background:${detail.color}">${createInititals(detail.name)}</span>
+            <span class="name-initals" style="background:${
+                detail.color
+            }">${createInititals(detail.name)}</span>
             <div class="name-detail">
                 ${detail.name}
                 <div class="edit-details-btns">
@@ -126,7 +128,9 @@ function contactOwnCirleHTML(detail) {
     return /*html*/ `
     <div class="detail-container">
         <div class="contact-name-details">
-            <span class="name-initals" style="background:${detail.color}">${createInititals(detail.name)}</span>
+            <span class="name-initals" style="background:${
+                detail.color
+            }">${createInititals(detail.name)}</span>
             <div class="name-detail">
                 ${detail.name}
                 <div class="edit-details-btns">
@@ -151,7 +155,9 @@ function firstLetterHtml(firstLetter) {
 
 function contactListHtml(contact, i) {
     return /*html*/ `<div onclick="openContact(${i})" id="contact-list${i}" class="contact-list d-flex">
-      <span class="contact-initials center" style="background:${contact.color}">${createInititals(contact.name)}</span>
+      <span class="contact-initials center" style="background:${
+          contact.color
+      }">${createInititals(contact.name)}</span>
       <div>
         <p>${contact.name}</p>
         <a href="#">${contact.email}</a>
@@ -161,14 +167,15 @@ function contactListHtml(contact, i) {
 
 function ownContactListHtml(contact) {
     return /*html*/ `<div onclick="openOwnContact()" id="ownContact" class="contact-list d-flex">
-      <span class="contact-initials center" style="background:${contact.color}">${createInititals(contact.name)}</span>
+      <span class="contact-initials center" style="background:${
+          contact.color
+      }">${createInititals(contact.name)}</span>
       <div>
         <p>${contact.name}</p>
         <a href="#">${contact.email}</a>
       </div>
     </div>`;
 }
-
 
 function contactInDropDownHTML(contact, initials) {
     return /*html*/ `
@@ -203,9 +210,10 @@ function userInDropDownHTML(initials, userIndex) {
 }
 
 function contactSelectionCircleHTML(contact) {
-    return /*html*/ `<div class="contact center " style="background-color:${contact.color}">${createInititals(contact.name)}</div>`;
+    return /*html*/ `<div class="contact center " style="background-color:${
+        contact.color
+    }">${createInititals(contact.name)}</div>`;
 }
-
 
 function subtaskBtnHTML() {
     return /*html*/ `
@@ -256,12 +264,13 @@ function editIconsHTML(i) {
             </div>`;
 }
 
-
 function taskBoardOverlay(currentTask) {
     return /*html*/ ` <div class="task-overlay-bg" >
         <div class="task-overlay" onclick="stopEventBubbling(event)">
             <div class="task-overlay-category-container">
-                <span class="task-overlay-category ${currentTask.categoryText.replace(" ", "-").toLowerCase()}">${currentTask.categoryText}</span>
+                <span class="task-overlay-category ${currentTask.categoryText
+                    .replace(" ", "-")
+                    .toLowerCase()}">${currentTask.categoryText}</span>
                 <img class="task-overlay-close-icon" src="./assets/icons/close-icon-dark.png" alt="" onclick="classChangeAction('overlaver','overlaver-active','remove');">
             </div>
             <h1 class="task-overlay-title">
@@ -303,7 +312,11 @@ function taskBoardOverlay(currentTask) {
 function generateAssignedToOerlayLiHTML(contact) {
     return /*html*/ `
                         <li class="assigned-to-contact">
-                                <div title="${contact.name}" class="initials-circle center" style="background-color:${contact.color};">${createInititals(contact.name)}</div>
+                                <div title="${
+                                    contact.name
+                                }" class="initials-circle center" style="background-color:${
+        contact.color
+    };">${createInititals(contact.name)}</div>
                                 <span class="name">${contact.name}</span>
                         </li>`;
 }

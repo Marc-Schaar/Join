@@ -19,24 +19,14 @@
         padding: 25px 16px 48px calc(232px + 16px);
     }
 
-
-}
-
-
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
-    .sidebar-desktop {
-        width: 130px;
+    body {
+        flex-direction: row-reverse;
+        justify-content: space-between;
     }
 
     .nav-link-desktop {
-        padding: 5px 0;
+        padding: 24px 0;
         flex-direction: column;
-        z-index: 1;
-        height: unset;
-    }
-
-    .sidebar-nav {
-        gap: 25px;
     }
 
     .sidebar-info {

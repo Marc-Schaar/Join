@@ -18,6 +18,7 @@
     <script src="./assets/templates/template.js"></script>
 
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles/standart.css" />
     <link rel="stylesheet" href="./styles/add-task.css" />
     <link rel="stylesheet" href="./styles/board.css" />
     <link rel="stylesheet" href="./styles/header-sidebar.css" />
@@ -27,11 +28,12 @@
     <link rel="stylesheet" href="./styles/responsive/board-responsive.css" />
 </head>
 
-<body class="column" onload="boardInit(); styleSelecet(); markedPage('board-link', 'activePage')"
+<body onload="boardInit(); styleSelecet(); markedPage('board-link', 'activePage')"
     onclick="classChangeAction('user-menu', 'd-none', 'add'); classChangeAction('menu', 'menu-active', 'remove'); stopEventBubbling(event);">
-    <section id="join-header" class="join-header"></section>
 
-    <main class="board-main-content">
+
+    <main>
+        <section id="join-header" class="join-header"></section>
         <div class="max-content-board">
             <section class="board-head-mobile">
                 <div class="headline-addTask-container">

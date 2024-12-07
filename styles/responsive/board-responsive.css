@@ -23,10 +23,6 @@
         overflow-y: auto;
     }
 
-    .board-main-content {
-        margin-left: 0;
-    }
-
     .desktop-section-search-add {
         display: none;
     }
@@ -46,30 +42,16 @@
         min-height: 72px;
         max-height: 112px;
     }
-
-    .task-container {
-        padding: 16px 5px;
-    }
-
-    .board-main-content { 
-        padding: 0 5px;
-    }
-
-    .board-section {
-        padding: 0;
-    }
-
 }
 
 
 @media (min-width: 1024px) {
+    .max-content-board {
+        padding: 16px;
+    }
 
     .drag-drop-icon {
         display: none;
-    }
-
-    .board-main-content {
-        height: 100vh;
     }
 
     .mobile-section-search-add {
@@ -78,23 +60,24 @@
 
     .task-container {
         flex-direction: column;
-        overflow-x: unset;
-        overflow-y: auto;
+        padding: 8px 0;
     }
 
     .board-section {
-        min-width: 240px;
         height: 100%;
-        padding: 0;
+        width: 25%;
+        padding: 0 8px 60px;
     }
 
     .task-content {
+        margin-top: 16px;
         flex-direction: row;
         height: 85%;
+        gap: 8px;
     }
 
-    .task-container {
-        height: 100%;
+    .no-task {
+        max-width: 240px;
     }
 
     .board-head-desktop {
@@ -111,65 +94,7 @@
     }
 }
 
-
-
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
-    .task-content {
-        gap: 0;
-    }
-
-    .board-section {
-        width: 100%;
-        min-width: 215px;
-        padding: 5px;
-    }
-
-    .task {
-        width: 100%;
-        min-width: unset;
-    }
-
-    .subtitle {
-        font-size: 14px;
-    }
-
-    .task-category {
-        scale: 0.9;
-    }
-
-    .task-wrapper{
-        max-width: 100%;
-    }
-
-    .task-container {
-        height: 100%;
-        padding: 0 8px;
-    }
-
-    .board-section{
-        padding: 0;
-    }
-
-    .board-main-content {
-        padding: 0;
-    }
-}
-
-@media screen and (max-width: 1440px) and (min-width: 1230px) {
-    .task-content {
-        gap: 10px;
-    }
-}
-
 @media (min-width: 1440px) {
-    .board-main-content {
-        margin-left: 232px;
-    }
-
-    .board-section {
-        flex: 1;
-    }
-
     .task-wrapper {
         min-width: 220px;
     }

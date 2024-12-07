@@ -268,7 +268,7 @@ function checkScreenWidth() {
     let currentHeader = "";
     let currentSidebar = "";
     try {
-        if (window.innerWidth <= 1024) {        
+        if (window.innerWidth < 1024) {
             currentHeader = mobileHeader(createInititals(user));
             currentSidebar = mobileSidebar();
             screenMode = "mobile";
@@ -279,8 +279,7 @@ function checkScreenWidth() {
         }
         header.innerHTML = currentHeader;
         sidebar.innerHTML = currentSidebar;
-    } catch {
-    }
+    } catch {}
 }
 
 checkScreenWidth();
@@ -412,8 +411,10 @@ function selection(select, styledSelect, list) {
         closeOtherSelects(styledSelect);
 
         styledSelect.classList.toggle("active");
-        list.style.display = styledSelect.classList.contains("active") ? "block" : "none";
-        if (styledSelect.classList.contains("active")) 
+        list.style.display = styledSelect.classList.contains("active")
+            ? "block"
+            : "none";
+        if (styledSelect.classList.contains("active"))
             list.querySelector("li.hide-first").style.display = "none";
     });
     closeList(list, styledSelect, select);
@@ -424,12 +425,14 @@ function selection(select, styledSelect, list) {
  * @param {HTMLDivElement} currentSelect - The currently opened styled <div>.
  */
 function closeOtherSelects(currentSelect) {
-    document.querySelectorAll("div.styledSelect.active").forEach(function (activeSelect) {
-        if (activeSelect !== currentSelect) {
-            activeSelect.classList.remove("active");
-            activeSelect.nextElementSibling.style.display = "none";
-        }
-    });
+    document
+        .querySelectorAll("div.styledSelect.active")
+        .forEach(function (activeSelect) {
+            if (activeSelect !== currentSelect) {
+                activeSelect.classList.remove("active");
+                activeSelect.nextElementSibling.style.display = "none";
+            }
+        });
 }
 
 /**
