@@ -15,10 +15,6 @@
 
 
 @media(min-width: 1024px) {
-    .content {
-        padding: 25px 16px 48px calc(232px + 16px);
-    }
-
     body {
         flex-direction: row-reverse;
     }
@@ -36,11 +32,6 @@
     .subtitle {
         z-index: 1;
     }
-
-    .content {
-        padding: 25px 16px 48px calc(130px + 16px);
-    }
-
 }
 
 
