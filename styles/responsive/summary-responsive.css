@@ -5,11 +5,6 @@
 
     .summary-headline-container {
         font-size: 16px;
-        padding-bottom: 10px;
-    }
-
-    .underline {
-        width: 84px;
     }
 
     .summary-icon {
@@ -20,31 +15,17 @@
     .task-count {
         font-size: 40px;
     }
-
-    .summary-counter {
-        font-size: 14px;
-    }
-
-    .summary-urgent-btn {
-        gap: 14px;
-    }
-
-
 }
 
 
 
-@media screen and (max-width: 600px) and (min-width: 428px) {
-    .greeting-time-mobile {
-        font-size: 47px;
-    }
-
+@media screen and (max-width: 600px) {
     .greeting-name-mobile {
         font-size: 60px;
     }
 }
 
-@media screen and (max-width: 1024px) and (min-width: 600px) {
+@media screen and (max-width: 1023px) {
     .greeting-time-mobile {
         font-size: 47px;
     }
@@ -57,6 +38,18 @@
 
 
 @media(min-width: 1024px) {
+    .summary-table {
+        min-width: 400px;
+    }
+
+    .box {
+        padding: 16px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
     .summary-greeting-container {
         display: block;
 
@@ -64,6 +57,10 @@
 
     .summary-content {
         justify-content: space-around;
+    }
+
+    .summary-container {
+        min-width: 400px;
     }
 
     .greeting-name {
@@ -84,10 +81,6 @@
 @media(min-width: 1440px) {
     .summary-content {
         justify-content: space-around;
-    }
-
-    .summary-headline-container {
-        left: 100px;
     }
 
     .greeting-name {
