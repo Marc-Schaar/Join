@@ -2,7 +2,8 @@
     display: flex;
 }
 
-.sb-c {
+.justify-sb {
+    display: flex;
     justify-content: space-between;
 }
 

@@ -12,16 +12,11 @@ main {
 }
 
 .content-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 64px;
 }
 
 .summary-headline-container {
     font-size: 20px;
-    display: flex;
-    flex-direction: column;
 }
 
 h1 {
@@ -34,12 +29,6 @@ h1 {
     background-color: var(--light-blue);
     width: 90px;
 
-}
-
-.box-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
 }
 
 .container-animation-1 {
