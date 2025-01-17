@@ -4,6 +4,17 @@ let currentUser;
 let remeberMe;
 let remeberMeUser;
 
+function toogleVisabiltyPsw() {
+    let inputRef = document.getElementById("password");
+    let imgRef = document.getElementById("password");
+    if (inputRef.type === "password") {
+        inputRef.type = "text";
+        //Bild Einfügen
+        // imgRef.src =
+    } else {
+        inputRef.type = "password";
+    }
+}
 
 /**
  * Initializes the login process by fetching user data and checking for the "Remember Me" option.
@@ -39,7 +50,7 @@ async function login() {
 /**
  * Searches for the user in the database based on the provided email and password.
  * If found, logs the user in and remembers their credentials if the "Remember Me" option is checked.
- * 
+ *
  * @param {string} emailInput - The email entered by the user.
  * @param {string} passwordInput - The password entered by the user.
  * @param {Object} users - Object containing all users.
@@ -48,10 +59,13 @@ async function login() {
 function searchUserInDatabase(emailInput, passwordInput, users, userIds) {
     let emailInputLower = emailInput.toLowerCase();
     let remeberMeRef = document.getElementById("myCheckbox");
-    for (let i = 0; i < userIds.length; i++) { 
+    for (let i = 0; i < userIds.length; i++) {
         userId = userIds[i];
         currentUser = users[userId];
-        if (currentUser.email.toLowerCase() === emailInputLower && currentUser.password === passwordInput) {
+        if (
+            currentUser.email.toLowerCase() === emailInputLower &&
+            currentUser.password === passwordInput
+        ) {
             userFound = true;
             userLogin(remeberMeRef, userId);
             break;
@@ -61,7 +75,7 @@ function searchUserInDatabase(emailInput, passwordInput, users, userIds) {
 
 /**
  * Logs the user in by saving their details to localStorage and redirects to the summary page.
- * 
+ *
  * @param {HTMLElement} remeberMeRef - The checkbox element for the "Remember Me" option.
  * @param {string} userId - The ID of the logged-in user.
  */
@@ -77,7 +91,7 @@ function userLogin(remeberMeRef, userId) {
 
 /**
  * Adds a shake animation to the provided error element.
- * 
+ *
  * @param {HTMLElement} Error - The element to shake.
  */
 function shake(Error) {
@@ -89,7 +103,7 @@ function shake(Error) {
 
 /**
  * Applies error styles to the email input field based on validation.
- * 
+ *
  * @param {string} emailInput - The email entered by the user.
  */
 function emailInputErrorStyle(emailInput) {
@@ -101,12 +115,16 @@ function emailInputErrorStyle(emailInput) {
 
 /**
  * Checks if the email input field is empty and applies appropriate error styles.
- * 
+ *
  * @param {string} emailInput - The email entered by the user.
  * @param {HTMLElement} userEmailError - The element displaying the email error message.
  * @param {HTMLElement} userEmailContainer - The container for the email input field.
  */
-function checkIfEmailInputFilled(emailInput, userEmailError, userEmailContainer) {
+function checkIfEmailInputFilled(
+    emailInput,
+    userEmailError,
+    userEmailContainer
+) {
     if (emailInput === "") {
         userEmailError.textContent = "Please enter your Email!";
         userEmailError.classList.add("visible");
@@ -120,7 +138,7 @@ function checkIfEmailInputFilled(emailInput, userEmailError, userEmailContainer)
 
 /**
  * Checks if the email input contains an '@' symbol and applies error styles if it does not.
- * 
+ *
  * @param {string} emailInput - The email entered by the user.
  * @param {HTMLElement} userEmailError - The element displaying the email error message.
  * @param {HTMLElement} userEmailContainer - The container for the email input field.
@@ -136,7 +154,7 @@ function checkIfEmailHaveAnAtt(emailInput, userEmailError, userEmailContainer) {
 
 /**
  * Checks if the email input contains an '@' symbol.
- * 
+ *
  * @param {string} emailInput - The email entered by the user.
  */
 function containsAtSymbol(emailInput) {
@@ -145,7 +163,7 @@ function containsAtSymbol(emailInput) {
 
 /**
  * Applies error styles to the password input field based on validation.
- * 
+ *
  * @param {string} passwordInput - The password entered by the user.
  * @param {string} emailInput - The email entered by the user.
  */
@@ -158,13 +176,16 @@ function passwordInputErrorStyle(passwordInput, emailInput) {
 
 /**
  * Checks if the password matches the user's password in the database and applies error styles if not.
- * 
+ *
  * @param {string} passwordInput - The password entered by the user.
  * @param {HTMLElement} userPwdError - The element displaying the password error message.
  * @param {string} emailInput - The email entered by the user.
  */
 function checkIfPasswordMatch(passwordInput, userPwdError, emailInput) {
-    if ((passwordInput !== "" && passwordInput !== currentUser.password) || (emailInput !== currentUser.email && passwordInput !== "")) {
+    if (
+        (passwordInput !== "" && passwordInput !== currentUser.password) ||
+        (emailInput !== currentUser.email && passwordInput !== "")
+    ) {
         userPwdError.textContent = "Email or Password isn't correct";
         userPwdError.classList.add("visible");
         shake(userPwdError);
@@ -173,12 +194,16 @@ function checkIfPasswordMatch(passwordInput, userPwdError, emailInput) {
 
 /**
  * Checks if the password input field is empty and applies appropriate error styles.
- * 
+ *
  * @param {string} passwordInput - The password entered by the user.
  * @param {HTMLElement} userPwdError - The element displaying the password error message.
  * @param {HTMLElement} userPwdContainer - The container for the password input field.
  */
-function checkIfPasswordInputFilled(passwordInput, userPwdError, userPwdContainer) {
+function checkIfPasswordInputFilled(
+    passwordInput,
+    userPwdError,
+    userPwdContainer
+) {
     if (passwordInput === "") {
         userPwdError.textContent = "Please enter your Password!";
         userPwdError.classList.add("visible");

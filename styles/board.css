@@ -19,16 +19,6 @@ main {
     justify-content: space-between;
 }
 
-.board-headline-desktop {
-    font-size: 61px;
-    font-weight: 700;
-}
-
-.search-addTask-container {
-    display: flex;
-    gap: 16px;
-}
-
 .search-box-desktop {
     position: relative;
     display: flex;
@@ -46,11 +36,6 @@ main {
 
 .search-task-input-desktop:focus {
     border: none;
-}
-
-.search-icon {
-    width: 32px;
-    height: 32px;
 }
 
 .nummber-of-tasks {
@@ -88,11 +73,6 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: 8px 0 0;
-}
-
-.board-headline-mobile {
-    font-size: 47px;
-    font-weight: 700;
 }
 
 .add-task-mobile-btn {
@@ -163,7 +143,6 @@ main {
 }
 
 .board-section-title {
-    font-size: 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -278,7 +257,6 @@ main {
 }
 
 .task-amount {
-    font-size: 14px;
     text-wrap: nowrap;
     margin-left: 16px;
 }
@@ -362,7 +340,7 @@ main {
     background-color: white;
     border-radius: 24px;
     gap: 8px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: var(--box-shadow);
     overflow: hidden;
     cursor: grab;
     transition: all ease-in-out 100ms;
@@ -413,7 +391,7 @@ main {
     padding: 48px 40px;
     box-sizing: border-box;
     gap: 10px;
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 1px 9px 7px;
+    box-shadow: var(--box-shadow);
     transition: all ease-in-out 125ms;
 }
 
@@ -555,7 +533,7 @@ main {
     border-radius: 16px;
     background-color: var(--white);
     max-height: 80%;
-    box-shadow: rgba(99, 99, 99, 0.8) 0px 2px 8px 0px;
+    box-shadow: var(--box-shadow);
     z-index: 2;
 }
 
@@ -609,7 +587,7 @@ main {
     display: flex;
     align-items: center;
     position: relative;
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 1px 9px 7px;
+    box-shadow: var(--box-shadow);
 }
 
 .edit-title-input {
