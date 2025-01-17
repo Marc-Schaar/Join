@@ -6,7 +6,7 @@ let remeberMeUser;
 
 function toogleVisabiltyPsw() {
     let inputRef = document.getElementById("password");
-    let imgRef = document.getElementById("password");
+    let imgRef = document.getElementById("password-img");
     if (inputRef.type === "password") {
         inputRef.type = "text";
         //Bild Einfügen
@@ -22,13 +22,15 @@ function toogleVisabiltyPsw() {
  */
 async function loginInit() {
     users = await getData("users");
-    userIds = Object.keys(users);
-    remeberMe = getFromLocalStorage("rememberMe");
-    remeberMeUser = getFromLocalStorage("rememberMeUser");
-    if (remeberMe) {
-        document.getElementById("email").value = remeberMeUser.email;
-        document.getElementById("password").value = remeberMeUser.password;
-        login();
+    if (users) {
+        userIds = Object.keys(users);
+        remeberMe = getFromLocalStorage("rememberMe");
+        remeberMeUser = getFromLocalStorage("rememberMeUser");
+        if (remeberMe) {
+            document.getElementById("email").value = remeberMeUser.email;
+            document.getElementById("password").value = remeberMeUser.password;
+            login();
+        }
     }
 }
 

@@ -1,4 +1,6 @@
-const BASE_URL = "https://join--projekt-default-rtdb.europe-west1.firebasedatabase.app/";
+const BASE_URL =
+    "https://join-portfolio-26e97-default-rtdb.europe-west1.firebasedatabase.app/";
+// const BASE_URL = "https://join--projekt-default-rtdb.europe-west1.firebasedatabase.app/";
 
 /**
  * Fetches data asynchronously from the specified API endpoint.
