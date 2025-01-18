@@ -1,8 +1,9 @@
 let userFound = false;
-let users;
+let users = [];
 let currentUser;
 let remeberMe;
 let remeberMeUser;
+let passwordInput = document.getElementById("password");
 
 function toogleVisabiltyPsw() {
     let inputRef = document.getElementById("password");
@@ -24,11 +25,12 @@ async function loginInit() {
     users = await getData("users");
     if (users) {
         userIds = Object.keys(users);
-        remeberMe = getFromLocalStorage("rememberMe");
-        remeberMeUser = getFromLocalStorage("rememberMeUser");
-        if (remeberMe) {
+        let remeberMe = getFromLocalStorage("rememberMe");
+        let remeberMeUser = getFromLocalStorage("rememberMeUser");
+        if (remeberMe && remeberMeUser) {
             document.getElementById("email").value = remeberMeUser.email;
-            document.getElementById("password").value = remeberMeUser.password;
+            passwordInput.value = remeberMeUser.password;
+            document.getElementById("myCheckbox").checked = remeberMe;
             login();
         }
     }
@@ -39,56 +41,78 @@ async function loginInit() {
  * Displays error styles if the login fails.
  */
 async function login() {
+    let isUserFound = searchUserInDatabase(getInputs());
+    if (checkForm() && isUserFound) {
+        userLogin();
+    } else {
+        showError();
+    }
+}
+
+function checkForm() {
+    let emailError = document.getElementById(`email-error`);
+    email = document.getElementById("email");
+    let passwordError = document.getElementById(`password-error`);
+
+    emailError.innerHTML = "";
+    passwordError.innerHTML = "";
+    let mailCheck = checkEmail(email.value, emailError);
+    // let passwordCheck = checkPhone(phone, phoneError);
+    if (true == mailCheck) {
+        return true;
+    }
+    addErrorClasses(emailError, passwordError);
+    return false;
+}
+
+function showError() {
+    console.log("Nutzer nicht gefunden", users);
+}
+
+function getInputs() {
     let emailInput = document.getElementById("email").value;
     let passwordInput = document.getElementById("password").value;
-
-    searchUserInDatabase(emailInput, passwordInput, users, userIds);
-    if (!userFound) {
-        emailInputErrorStyle(emailInput);
-        passwordInputErrorStyle(passwordInput, emailInput);
-    }
+    return { email: emailInput, password: passwordInput };
 }
 
-/**
- * Searches for the user in the database based on the provided email and password.
- * If found, logs the user in and remembers their credentials if the "Remember Me" option is checked.
- *
- * @param {string} emailInput - The email entered by the user.
- * @param {string} passwordInput - The password entered by the user.
- * @param {Object} users - Object containing all users.
- * @param {Array} userIds - Array of user IDs.
- */
-function searchUserInDatabase(emailInput, passwordInput, users, userIds) {
-    let emailInputLower = emailInput.toLowerCase();
-    let remeberMeRef = document.getElementById("myCheckbox");
-    for (let i = 0; i < userIds.length; i++) {
-        userId = userIds[i];
-        currentUser = users[userId];
+function getCheckboxStatus() {
+    let checkboxRef = document.getElementById("myCheckbox");
+    if (checkboxRef.checked) return true;
+    else return false;
+}
+
+function searchUserInDatabase(inputs) {
+    for (let index = 0; index < userIds.length; index++) {
+        let userId = userIds[index];
+        let searchCurrentUser = users[userId];
+
         if (
-            currentUser.email.toLowerCase() === emailInputLower &&
-            currentUser.password === passwordInput
+            searchCurrentUser.email == inputs.email &&
+            searchCurrentUser.password == inputs.password
         ) {
-            userFound = true;
-            userLogin(remeberMeRef, userId);
-            break;
+            currentUser = searchCurrentUser;
+            return true;
         }
     }
+    return false;
 }
-
 /**
  * Logs the user in by saving their details to localStorage and redirects to the summary page.
  *
  * @param {HTMLElement} remeberMeRef - The checkbox element for the "Remember Me" option.
  * @param {string} userId - The ID of the logged-in user.
  */
-function userLogin(remeberMeRef, userId) {
-    localStorage.setItem("user", currentUser.name);
-    localStorage.setItem("userId", userId);
-    if (remeberMeRef.checked) {
-        saveToLocalStorage("rememberMe", remeberMeRef.checked);
+function userLogin() {
+    if (currentUser) {
+        localStorage.setItem("user", currentUser.name);
+        localStorage.setItem("userId", currentUser.id);
+        saveToLocalStorage("rememberMe", getCheckboxStatus());
         saveToLocalStorage("rememberMeUser", currentUser);
+
+        window.location.href = "summary.html";
+    } else {
+        console.log("Fehler: currentUser ist nicht definiert.");
     }
-    window.location.href = "summary.html";
 }
 
 /**
