@@ -55,8 +55,8 @@
 
 
             <div class="input-container column align-items-center">
-                <input id="password" placeholder="password" type="password">
-                <img id="password-img" onclick="toogleVisabiltyPsw()" src="./assets/icons/lock.png" alt="keylock">
+                <input id="password" placeholder="password" type="password" oninput="tooglePasswortIcon()">
+                <img id="password-img" onclick="tooglePasswortVisability()" src="./assets/icons/lock.png" alt="keylock">
                 <div id="password-error" class="error-message"></div>
             </div>
 

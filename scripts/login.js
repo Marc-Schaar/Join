@@ -225,18 +225,35 @@ function goSummery() {
 }
 
 /**
- * Toggles the visibility of the password field.
- *
+ * Toggles the password icon based on the input value and type.
+ * This function changes the icon displayed next to the password input field depending on the input value
+ * and whether the password field is currently hidden or shown.
  * @function toggleVisibilityPsw
  */
-function toogleVisabiltyPsw() {
+function tooglePasswortIcon() {
     let inputRef = document.getElementById("password");
     let imgRef = document.getElementById("password-img");
-    if (inputRef.type === "password") {
+    if (inputRef.value.length > 0 && inputRef.type !== "text") {
+        imgRef.src = "./assets/icons/visibility_off.png";
+    } else if (inputRef.type !== "text") {
+        imgRef.src = "./assets/icons/lock.png";
+    }
+}
+
+/**
+ * Toggles the visibility of the password input field.
+ * This function changes the input field type between "password" and "text",
+ * as well as updates the corresponding visibility icon based on the current field value.
+ * @function tooglePasswortVisability
+ */
+function tooglePasswortVisability() {
+    let inputRef = document.getElementById("password");
+    let imgRef = document.getElementById("password-img");
+    if (inputRef.type === "password" && inputRef.value.length > 0) {
         inputRef.type = "text";
-        //Bild Einfügen
-        // imgRef.src =
-    } else {
+        imgRef.src = "./assets/icons/visibility.png";
+    } else if (inputRef.value.length > 0) {
         inputRef.type = "password";
+        imgRef.src = "./assets/icons/visibility_off.png";
     }
 }
