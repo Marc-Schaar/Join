@@ -1,9 +1,9 @@
 /**
  * Validates form fields for name, email, and phone, and displays error messages if validation fails.
- * 
- * This function checks the validity of name, email, and phone inputs. If any field fails validation, 
+ *
+ * This function checks the validity of name, email, and phone inputs. If any field fails validation,
  * the corresponding error message is displayed, and error classes are added to the fields.
- * 
+ *
  * @param {string} name - The name to be validated.
  * @param {string} email - The email address to be validated.
  * @param {string} phone - The phone number to be validated.
@@ -18,13 +18,13 @@ function formValidation(name, email, phone, mode) {
     nameError.innerHTML = "";
     emailError.innerHTML = "";
     phoneError.innerHTML = "";
-    let nameCheck = checkName(name, nameError)
-    let emailCheck = checkEmail(email, emailError)
-    let phoneCheck = checkPhone(phone, phoneError)
+    let nameCheck = checkName(name, nameError);
+    let emailCheck = checkEmail(email, emailError);
+    let phoneCheck = checkPhone(phone, phoneError);
     if (true == nameCheck && emailCheck && phoneCheck) {
         return isValid;
     }
-    addErrorClasses(nameError, emailError, phoneError)
+    addErrorClasses(nameError, emailError, phoneError);
     return false;
 }
 
@@ -39,24 +39,30 @@ function formValidation(name, email, phone, mode) {
  * @param {HTMLElement} phoneError - The HTML element to display phone-related error messages.
  */
 function addErrorClasses(nameError, emailError, phoneError) {
-    nameError.classList.add("error-message");
-    emailError.classList.add("error-message");
-    phoneError.classList.add("error-message");
+    if (nameError) {
+        nameError.classList.add("error-message");
+    }
+    if (emailError) {
+        emailError.classList.add("error-message");
+    }
+    if (phoneError) {
+        phoneError.classList.add("error-message");
+    }
 }
 
 /**
  * Runs validation checks for name, email, and phone fields.
  *
- * This function calls individual validation functions for each field (name, email, and phone) 
+ * This function calls individual validation functions for each field (name, email, and phone)
  * and displays error messages if any validation fails.
- * 
+ *
  * Note: Assumes that `name`, `email`, `phone`, `nameError`, `emailError`, and `phoneError` are
  * defined in the global scope or accessible within this function.
  */
 function check() {
-    checkName(name, nameError)
-    checkEmail(email, emailError)
-    checkPhone(phone, phoneError)
+    checkName(name, nameError);
+    checkEmail(email, emailError);
+    checkPhone(phone, phoneError);
 }
 
 /**
@@ -78,7 +84,7 @@ function checkName(name, nameError) {
         nameError.innerHTML = "Name should start with a capital letter";
         isValid = false;
     }
-    return isValid
+    return isValid;
 }
 
 /**
@@ -125,20 +131,35 @@ function checkPhone(phone, phoneError) {
     return isValid;
 }
 
+function checkPassword(password, passwordError) {
+    let isValid = true;
+    if (!password || password.trim() === "") {
+        passwordError.innerHTML = "Password is required";
+        isValid = false;
+    }
+
+    if (password.length < 4) {
+        passwordError.innerHTML = "Password is to short. 4 Letter are required";
+        isValid = false;
+    }
+
+    return isValid;
+}
+
 /**
  * Validates the input fields for adding a task and displays error messages for invalid fields.
  *
- * This function clears existing error messages and performs validation checks on the title, date, 
- * and category fields required for adding a task. If any of these fields are invalid, the function 
+ * This function clears existing error messages and performs validation checks on the title, date,
+ * and category fields required for adding a task. If any of these fields are invalid, the function
  * displays corresponding error messages and adds an error style class to each field’s error element.
  *
  * @returns {boolean} Returns `true` if all fields are valid, otherwise `false`.
  */
 function addTaskValidation() {
     let isValid = true;
-    let addTaskTitle = document.getElementById('title-error');
-    let addTaskDate = document.getElementById('date-error');
-    let addTaskCategory = document.getElementById('category-error');
+    let addTaskTitle = document.getElementById("title-error");
+    let addTaskDate = document.getElementById("date-error");
+    let addTaskCategory = document.getElementById("category-error");
 
     addTaskTitle.innerHTML = "";
     addTaskDate.innerHTML = "";
@@ -150,14 +171,14 @@ function addTaskValidation() {
     if (true == titleCheck && dateCheck && categoryCheck) {
         return isValid;
     }
-    addErrorClasses(addTaskTitle, addTaskDate, addTaskCategory)
+    addErrorClasses(addTaskTitle, addTaskDate, addTaskCategory);
     return false;
 }
 
 /**
  * Validates the title input for a task and displays an error message if it is empty.
  *
- * This function checks if a title is provided for a task. If the title is empty, an error 
+ * This function checks if a title is provided for a task. If the title is empty, an error
  * message is displayed in the specified `addTaskTitle` element.
  *
  * @param {HTMLElement} addTaskTitle - The HTML element where the error message for the title field is displayed.
@@ -176,7 +197,7 @@ function checkTitle(addTaskTitle) {
 /**
  * Validates the date input for a task and displays an error message if the date is invalid.
  *
- * This function checks if a date is provided for a task and ensures that the date is today 
+ * This function checks if a date is provided for a task and ensures that the date is today
  * or later. If the date is invalid, an error message is displayed in the specified `addTaskDate` element.
  *
  * @param {HTMLElement} addTaskDate - The HTML element where the error message for the date field is displayed.
@@ -198,7 +219,7 @@ function checkDate(addTaskDate) {
 /**
  * Validates the category input for a task and displays an error message if it is not selected.
  *
- * This function checks if a category is selected for a task. If no category is selected, 
+ * This function checks if a category is selected for a task. If no category is selected,
  * an error message is displayed in the specified `addTaskCategory` element.
  *
  * @param {HTMLElement} addTaskCategory - The HTML element where the error message for the category field is displayed.
@@ -213,5 +234,3 @@ function checkCategory(addTaskCategory) {
     }
     return isValid;
 }
-
-

@@ -22,16 +22,20 @@
     }
 }
 
-
 @media (min-width: 1024px) {
     body {
         padding: 48px;
     }
 
-    .logo {
-        width: 100px;
+    .overlay {
+        background-color: white;
     }
 
+    .logo {
+        width: 100px;
+        animation: moveLogo 1s ease-in-out forwards;
+        filter: unset;
+    }
 
     .mobile {
         display: none;

@@ -42,12 +42,15 @@ form {
 
 .input-container {
     position: relative;
+    align-items: baseline;
+    gap: 8px;
     width: 100%;
 }
 
 .input-container img {
     position: absolute;
     right: 16px;
+    top: 9px
 }
 
 input:not([type="checkbox"]) {
@@ -90,26 +93,17 @@ button {
 
 
 .red-border {
-    border: 2px solid red;
+    outline: 1px solid var(--red) !important;
 }
 
-.error-message-email,
-.error-message-password {
-    color: red;
+.error-message {
+    color: var(--red);
     font-size: 12px;
     display: none;
-    position: absolute;
-    top: 113%;
-
-}
-
-.error-message-email.visible,
-.error-message-password.visible {
-    display: block;
 }
 
 .shake {
-    animation: shake 0.3s ease;
+    animation: shake 0.3s linear forwards;
 }
 
 a,
@@ -118,14 +112,15 @@ a:visited {
 }
 
 .overlay {
-    position: fixed;
+    position: absolute;
+    z-index: 20;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: white;
+    background-color: var(--darke-blue);
     overflow: hidden;
-    animation: fadeOutOverlay 4s ease forwards;
+    animation: fadeOutOverlay 1s ease-in-out forwards 0.5s;
     pointer-events: none;
 
 }
@@ -144,7 +139,8 @@ a:visited {
     top: 50%;
     left: 50%;
     transition: all 0.125 ease-in-out;
-    animation: moveLogo 2.5s forwards ease-in-out;
+    animation: moveAndChangeColor 1.5s forwards ease-in-out;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(146deg) brightness(107%) contrast(104%);
 }
 
 
@@ -181,6 +177,29 @@ a:visited {
 
 }
 
+
+@keyframes moveAndChangeColor {
+    0% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(2.5);
+    }
+
+    30% {
+        filter: brightness(0) saturate(100%) invert(48%) sepia(0%) saturate(81%) hue-rotate(281deg) brightness(99%) contrast(93%);
+    }
+
+    55% {
+        filter: brightness(0) saturate(100%) invert(73%) sepia(0%) saturate(3%) hue-rotate(24deg) brightness(98%) contrast(94%)
+    }
+
+    100% {
+        top: 0;
+        left: 0;
+        transform: translate(0, 0) scale(1);
+        filter: initial;
+    }
+}
 
 @keyframes moveLogo {
     0% {
