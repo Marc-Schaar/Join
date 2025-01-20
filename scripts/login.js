@@ -28,6 +28,8 @@ async function loginInit() {
     }
 }
 
+function getUsers() {}
+
 /**
  * Handles the login process by validating the user input and checking the database.
  *
@@ -219,20 +221,15 @@ function goSummary() {
     window.location.href = "summary.html";
 }
 
-function goSummery() {
-    localStorage.setItem("user", "Guest");
-    window.location.href = "summary.html";
-}
-
 /**
  * Toggles the password icon based on the input value and type.
  * This function changes the icon displayed next to the password input field depending on the input value
  * and whether the password field is currently hidden or shown.
  * @function toggleVisibilityPsw
  */
-function tooglePasswortIcon() {
-    let inputRef = document.getElementById("password");
-    let imgRef = document.getElementById("password-img");
+function tooglePasswortIcon(id) {
+    let inputRef = document.getElementById(id);
+    let imgRef = document.getElementById(id + "-img");
     if (inputRef.value.length > 0 && inputRef.type !== "text") {
         imgRef.src = "./assets/icons/visibility_off.png";
     } else if (inputRef.type !== "text") {
@@ -246,9 +243,9 @@ function tooglePasswortIcon() {
  * as well as updates the corresponding visibility icon based on the current field value.
  * @function tooglePasswortVisability
  */
-function tooglePasswortVisability() {
-    let inputRef = document.getElementById("password");
-    let imgRef = document.getElementById("password-img");
+function tooglePasswortVisability(id) {
+    let inputRef = document.getElementById(id);
+    let imgRef = document.getElementById(id + "-img");
     if (inputRef.type === "password" && inputRef.value.length > 0) {
         inputRef.type = "text";
         imgRef.src = "./assets/icons/visibility.png";
