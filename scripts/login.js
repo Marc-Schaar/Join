@@ -1,6 +1,7 @@
 let userFound = false;
 let users = [];
 let currentUser;
+let userIds;
 
 /**
  * Initializes the login process by fetching user data and checking "Remember Me" settings.
@@ -17,6 +18,7 @@ async function loginInit() {
     users = await getData("users");
     if (users) {
         userIds = Object.keys(users);
+
         let remeberMe = getFromLocalStorage("rememberMe");
         let remeberMeUser = getFromLocalStorage("rememberMeUser");
         if (remeberMe && remeberMeUser) {
@@ -151,14 +153,17 @@ function getCheckboxStatus() {
  */
 function searchUserInDatabase(inputs) {
     for (let index = 0; index < userIds.length; index++) {
-        let userId = userIds[index];
-        let searchCurrentUser = users[userId];
+        let currentKey = userIds[index];
+        let searchCurrentUser = users[currentKey];
 
         if (
             searchCurrentUser.email == inputs.email &&
             searchCurrentUser.password == inputs.password
         ) {
             currentUser = searchCurrentUser;
+            currentUser.id = currentKey;
+            // localStorage.setItem("userId", currentKey);
+
             return true;
         }
     }

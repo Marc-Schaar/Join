@@ -48,6 +48,8 @@ async function getOwnContact() {
  */
 async function ownContact() {
     let ownContactData = await getOwnContact();
+    console.log(ownContactData);
+
     return {
         color: ownContactData.color,
         email: ownContactData.email,
@@ -207,20 +209,22 @@ function stopEventBubbling(event) {
  */
 async function getContacts() {
     contacts = [];
-    const contactsData = await getData("contacts");
-    const keys = Object.keys(contactsData);
-    for (let index = 0; index < keys.length; index++) {
-        const key = keys[index];
-        const contact = contactsData[key];
-        contacts.push({
-            name: contact.name,
-            email: contact.email,
-            phone: contact.phone,
-            color: contact.color,
-            key: key,
-        });
+    let contactsData = await getData("contacts");
+    if (contactsData) {
+        const keys = Object.keys(contactsData);
+        for (let index = 0; index < keys.length; index++) {
+            const key = keys[index];
+            const contact = contactsData[key];
+            contacts.push({
+                name: contact.name,
+                email: contact.email,
+                phone: contact.phone,
+                color: contact.color,
+                key: key,
+            });
+        }
+        sortByAlphabet(contacts);
     }
-    sortByAlphabet(contacts);
 }
 
 /**

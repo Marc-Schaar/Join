@@ -60,7 +60,9 @@ function highlightContact(i) {
     if (ownContactRef) {
         ownContactRef.classList.remove("contact-highlight");
     }
-    document.getElementById(`contact-list${i}`).classList.add("contact-highlight");
+    document
+        .getElementById(`contact-list${i}`)
+        .classList.add("contact-highlight");
 }
 /**
  * Opens the current user's own contact details.
@@ -154,7 +156,9 @@ function toogleDialog(id, index) {
 
     setTimeout(function () {
         document.getElementById(id).classList.remove("dialog-active");
-        buttonRef = document.getElementById("submit-add-contact-btn").removeAttribute("disabled");
+        buttonRef = document
+            .getElementById("submit-add-contact-btn")
+            .removeAttribute("disabled");
         openContact(index);
     }, 2000);
 }
@@ -168,7 +172,9 @@ function toogleDialog(id, index) {
  */
 async function findContact(name, email, phone) {
     await getContacts();
-    return contacts.findIndex((e) => e.name == name && e.email == email && e.phone == phone);
+    return contacts.findIndex(
+        (e) => e.name == name && e.email == email && e.phone == phone
+    );
 }
 
 /**
@@ -229,7 +235,9 @@ async function editOwnDetails() {
     document.getElementById("edit-email").value = currentDetail.email;
     document.getElementById("edit-phone").value = currentDetail.phone;
     document.getElementById("edit-initals-container").innerHTML = `
-    <span style="background-color:${currentDetail.color}" class="edit-initals center">${createInititals(currentDetail.name)}
+    <span style="background-color:${
+        currentDetail.color
+    }" class="edit-initals center">${createInititals(currentDetail.name)}
         <details class="change-color">
            <summary>
               Change Color
@@ -256,7 +264,9 @@ function editDetails() {
     document.getElementById("edit-email").value = currentDetail.email;
     document.getElementById("edit-phone").value = currentDetail.phone;
     document.getElementById("edit-initals-container").innerHTML = `
-    <span style="background-color:${currentDetail.color}" class="edit-initals center">${createInititals(currentDetail.name)}
+    <span style="background-color:${
+        currentDetail.color
+    }" class="edit-initals center">${createInititals(currentDetail.name)}
                          <details class="change-color">
            <summary>
               Change Color
@@ -285,7 +295,3 @@ async function showEditedContact(contacts, name, email, phone) {
         classChangeAction("edit-overlay-bg", "hide-overlay", "add");
     }
 }
-
-
-
-
