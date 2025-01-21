@@ -13,19 +13,6 @@ let confirmPasswordErrorRef = document.getElementById("confirm-password-error");
 let checkboxErrorRef = document.getElementById("checkbox-error");
 
 async function signUpInit() {
-    console.log(
-        nameInputRef,
-        emailInputRef,
-        passwordInputRef,
-        confirmPasswordInputRef,
-        checkboxInputRef,
-
-        nameErrorRef,
-        emailErrorRef,
-        passwordErrorRef,
-        confirmPasswordErrorRef,
-        checkboxErrorRef
-    );
     users = await getData("users");
     if (users) {
         userIds = Object.keys(users);
