@@ -33,6 +33,9 @@
 
     .logo {
         width: 100px;
+    }
+
+    .animation-move-and-change-color {
         animation: moveLogo 1s ease-in-out forwards;
         filter: unset;
     }

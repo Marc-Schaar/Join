@@ -1,4 +1,24 @@
 /**
+ * Validates the login form by checking email and password fields for correctness.
+ *
+ * This function resets any previous error states, validates email and password, and
+ * displays appropriate error messages if the input is invalid or the user is not found.
+ *
+ * @function checkForm
+ * @returns {boolean} True if the form passes validation, false otherwise.
+ */
+function checkLogInForm() {
+    let emailError = document.getElementById(`email-error`);
+    let email = document.getElementById("email");
+    let passwordError = document.getElementById(`password-error`);
+    let password = document.getElementById("password");
+
+    resetFormErrors([emailError, passwordError], [email, password]);
+    renderError(emailError, passwordError, email, password);
+    return true;
+}
+
+/**
  * Validates form fields for name, email, and phone, and displays error messages if validation fails.
  *
  * This function checks the validity of name, email, and phone inputs. If any field fails validation,
@@ -137,12 +157,6 @@ function checkPassword(password, passwordError) {
         passwordError.innerHTML = "Password is required";
         isValid = false;
     }
-
-    if (password.length < 4) {
-        passwordError.innerHTML = "Password is to short. 4 Letter are required";
-        isValid = false;
-    }
-
     return isValid;
 }
 

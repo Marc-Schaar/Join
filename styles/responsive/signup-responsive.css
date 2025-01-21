@@ -1,37 +1,5 @@
-@media (max-width: 427px) {
-    h1 {
-        font-size: 42px;
-    }
-}
-
-
 @media (min-width: 728px) {
-    form {
-        padding: 48px 116px;
-        gap: 32px;
-    }
-
     .back-btn {
         left: 40px;
-    }
-}
-
-@media (min-width: 1024px) {
-    body {
-        padding: 48px;
-    }
-
-
-
-    .logo {
-        width: 100px;
-        animation: moveLogo 1s ease-in-out forwards;
-        filter: unset;
-    }
-
-
-
-    .btn-primary {
-        width: fit-content;
     }
 }

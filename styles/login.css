@@ -13,6 +13,16 @@ header {
 
 .logo {
     width: 64px;
+
+}
+
+.animation-move-and-change-color {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: all 0.125s ease-in-out;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(146deg) brightness(107%) contrast(104%);
+    animation: moveAndChangeColor 1s ease-in-out forwards;
 }
 
 main {
@@ -135,16 +145,6 @@ a:visited {
     height: 100%;
     pointer-events: none;
 }
-
-.logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transition: all 0.125 ease-in-out;
-    animation: moveAndChangeColor 1.5s forwards ease-in-out;
-    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(146deg) brightness(107%) contrast(104%);
-}
-
 
 .checkbox-input {
     display: none;

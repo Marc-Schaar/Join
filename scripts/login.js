@@ -28,8 +28,6 @@ async function loginInit() {
     }
 }
 
-function getUsers() {}
-
 /**
  * Handles the login process by validating the user input and checking the database.
  *
@@ -44,31 +42,11 @@ function getUsers() {}
  */
 async function login() {
     userFound = searchUserInDatabase(getInputs());
-    if (checkForm() && userFound) {
+    if (checkLogInForm() && userFound) {
         userLogin();
     } else {
-        checkForm();
+        checkLogInForm();
     }
-}
-
-/**
- * Validates the login form by checking email and password fields for correctness.
- *
- * This function resets any previous error states, validates email and password, and
- * displays appropriate error messages if the input is invalid or the user is not found.
- *
- * @function checkForm
- * @returns {boolean} True if the form passes validation, false otherwise.
- */
-function checkForm() {
-    let emailError = document.getElementById(`email-error`);
-    let email = document.getElementById("email");
-    let passwordError = document.getElementById(`password-error`);
-    let password = document.getElementById("password");
-
-    resetFormErrors([emailError, passwordError], [email, password]);
-    renderError(emailError, passwordError, email, password);
-    return true;
 }
 
 /**

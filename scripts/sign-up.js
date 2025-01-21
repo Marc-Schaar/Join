@@ -12,6 +12,10 @@ let passwordErrorRef = document.getElementById("password-error");
 let confirmPasswordErrorRef = document.getElementById("confirm-password-error");
 let checkboxErrorRef = document.getElementById("checkbox-error");
 
+/**
+ * Initialize the sign-up process by fetching user data.
+ * Retrieves the existing users from the backend.
+ */
 async function signUpInit() {
     users = await getData("users");
     if (users) {
@@ -19,6 +23,10 @@ async function signUpInit() {
     }
 }
 
+/**
+ * Handles the sign-up process, validates the input, and either submits the data
+ * or displays validation errors.
+ */
 async function signUp() {
     input = getInput();
     let { nameExists, emailExists } = checkNameEmail();
@@ -46,6 +54,13 @@ async function signUp() {
         );
     }
 
+    /**
+     * Renders validation error messages based on the provided parameters.
+     * @param {boolean} emailExists - Indicates if the email already exists.
+     * @param {boolean} passwordMatch - Indicates if passwords match.
+     * @param {boolean} nameValid - Indicates if the name input is valid.
+     * @param {boolean} emailValid - Indicates if the email input is valid.
+     */
     function renderFormValidationsError(
         emailExists,
         passwordMatch,
@@ -59,27 +74,30 @@ async function signUp() {
             showError(
                 passwordErrorRef,
                 passwordInputRef,
-                "Password does not match"
+                "Passwords do not match"
             );
             showError(confirmPasswordErrorRef, confirmPasswordInputRef);
         }
-        if (passwordInputRef.value.length === 0) {
+        if (passwordInputRef.value.length <= 3) {
             showError(
                 passwordErrorRef,
                 passwordInputRef,
-                "Password is required"
+                "Password is too short. Minimum 4 characters required."
             );
         }
         if (checkboxInputRef && !checkboxInputRef.checked) {
             showError(
                 checkboxErrorRef,
                 checkboxInputRef,
-                "You must agree to the Privacy Policy"
+                "You must agree to the Privacy Policy."
             );
         }
     }
 }
 
+/**
+ * Resets all form errors for the sign-up form.
+ */
 function resetFormErrorsSignUp() {
     resetFormErrors(
         [
@@ -99,6 +117,10 @@ function resetFormErrorsSignUp() {
     );
 }
 
+/**
+ * Collects and returns the user input from the form.
+ * @returns {Object} Input values from the sign-up form.
+ */
 function getInput() {
     return {
         name: nameInputRef.value,
@@ -108,12 +130,20 @@ function getInput() {
     };
 }
 
+/**
+ * Checks if the password and confirm password inputs match.
+ * @returns {boolean} True if passwords match, otherwise false.
+ */
 function checkPasswordIdentical() {
     return passwordInputRef.value === confirmPasswordInputRef.value
         ? true
         : false;
 }
 
+/**
+ * Checks if the provided name or email already exists in the user list.
+ * @returns {Object} Contains boolean values for nameExists and emailExists.
+ */
 function checkNameEmail() {
     let nameExists = false;
     let emailExists = false;
@@ -127,6 +157,9 @@ function checkNameEmail() {
     return { nameExists, emailExists };
 }
 
+/**
+ * Submits the sign-up data to the backend.
+ */
 async function postSignUpData() {
     await postData((path = "/users"), (data = userTemplate()));
     clearInputs();
@@ -136,6 +169,10 @@ async function postSignUpData() {
     }, 2000);
 }
 
+/**
+ * Creates a user object for the sign-up process.
+ * @returns {Object} The user data template.
+ */
 function userTemplate() {
     return {
         name: input.name,
@@ -145,6 +182,9 @@ function userTemplate() {
     };
 }
 
+/**
+ * Clears all inputs in the sign-up form.
+ */
 function clearInputs() {
     nameInputRef.value = "";
     emailInputRef.value = "";
@@ -153,6 +193,10 @@ function clearInputs() {
     checkboxInputRef.checked = false;
 }
 
+/**
+ * Toggles a dialog box with the specified ID.
+ * @param {string} id - The ID of the dialog element.
+ */
 function toogleDialog(id) {
     document.getElementById(id).classList.add("dialog-active");
 
