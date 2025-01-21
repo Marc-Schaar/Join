@@ -9,8 +9,9 @@
 
     <script src="./assets/templates/template.js"></script>
     <script src="./scripts/fetch.js"></script>
-    <script src="./scripts/sign-up.js"></script>
+    <script defer src="./scripts/sign-up.js"></script>
     <script src="./scripts/login.js"></script>
+    <script src="./scripts/validation.js"></script>
 
     <script defer src="./script.js"></script>
 
@@ -64,12 +65,15 @@
                 <div id="confirm-password-error" class="error-message"></div>
             </div>
 
-            <div class="d-flex login-remember-me gap-16">
-                <input id="myCheckbox" class="checkbox-input " type="checkbox">
-                <label for="myCheckbox" class="checkbox-label"></label>
-                <p>I accept the <a class="link" id="linkPricacyPolicyCheckbox" href="./privacy-policy.html">Privacy
-                        policy</a>
-                </p>
+            <div class="column">
+                <div class="d-flex login-remember-me gap-16">
+                    <input id="myCheckbox" class="checkbox-input " type="checkbox">
+                    <label for="myCheckbox" class="checkbox-label"></label>
+                    <p>I accept the <a class="link" id="linkPricacyPolicyCheckbox" href="./privacy-policy.html">Privacy
+                            policy</a>
+                    </p>
+                </div>
+                <div id="checkbox-error" class="error-message"></div>
             </div>
 
             <div class="btn-container gap-16">
@@ -84,53 +88,6 @@
             <a id="legalNoticeLink" class="center" href="./legal-notice.html">Legal notice</a>
         </section>
     </footer>
-
-    <!-- <form class="d-flex content column gap-signup-logo-content">
-            <img class="logo-login" src="./assets/icons/logo-dark.svg" alt="" />
-            <div class="sign-up-form">
-              
-                <div class="sign-up-container d-flex center column">
-                    <div class="sign-up-headline">
-                        <h1 class="#">Sign up</h1>
-                        <div class="blue-underline"></div>
-                    </div>
-                    <div id="formInputsContainer" class="form-inputs-container d-flex column">
-                        <div id="name-input-container" class="sign-up-form-inputs">
-                            <input id="name-input" type="text" placeholder="Name" />
-                            <img src="./assets/icons/person.png" />
-                            <div id="name-error" class="error-message-name"></div>
-                        </div>
-                        <div id="email-input-container" class="sign-up-form-inputs">
-                            <input id="email-input" type="email" placeholder="Email" />
-                            <img src="./assets/icons/mail.png" />
-                            <div id="email-error" class="error-message-email"></div>
-                        </div>
-                        <div id="pwd-input-container" class="sign-up-form-inputs">
-                            <input autocomplete="new-password" id="user-pwd" type="password" placeholder="Password" />
-                            <img src="./assets/icons/lock.png" />
-                            <div id="password-error" class="error-message-password"></div>
-                        </div>
-                        <div id="conf-pwd-input-container" class="sign-up-form-inputs">
-                            <input id="user-conf-pwd" type="password" placeholder="Confirm Password" />
-                            <img src="./assets/icons/lock.png" />
-                            <div id="conf-pwd-error" class="error-message-conf-password"></div>
-                        </div>
-                    </div>
-                </div>
-                <div id="checkbox-container" class="checkbox-privacy-policy">
-                    <input id="myCheckbox" type="checkbox" />
-                    <label class="font-size-16" for="myCheckbox">I accept the <a class="link" id="linkPricacyPolicyCheckbox" href="./privacy-policy.html">Privacy policy</a></label>
-                    <div id="checkbox-error" class="error-message-checkbox"></div>
-                </div>
-                <div id="signupButton">
-                    <button onclick="signUp(); return false;" class="sign-up-btn">Sign up</button>
-                </div>
-            </div>
-            <div class="footer-container d-flex">
-                <a id="privacyPolicyLink" class="center" href="./privacy-policy.html">Privacy Policy</a>
-                <a id="legalNoticeLink" class="center" href="./legal-notice.html">Legal notice</a>
-            </div>
-        </form> -->
 
     <div id="dialog-allready-exists" class="dialog center">User is allready exists!</div>
     <div id="dialog-signup-succes" class="dialog center">You Signed Up successfully</div>

@@ -1,44 +1,130 @@
 let input;
 
+let nameInputRef = document.getElementById("name");
+let emailInputRef = document.getElementById("email");
+let passwordInputRef = document.getElementById("password");
+let confirmPasswordInputRef = document.getElementById("confirm-password");
+let checkboxInputRef = document.getElementById("myCheckbox");
+
+let nameErrorRef = document.getElementById("name-error");
+let emailErrorRef = document.getElementById("email-error");
+let passwordErrorRef = document.getElementById("password-error");
+let confirmPasswordErrorRef = document.getElementById("confirm-password-error");
+let checkboxErrorRef = document.getElementById("checkbox-error");
+
 async function signUpInit() {
+    console.log(
+        nameInputRef,
+        emailInputRef,
+        passwordInputRef,
+        confirmPasswordInputRef,
+        checkboxInputRef,
+
+        nameErrorRef,
+        emailErrorRef,
+        passwordErrorRef,
+        confirmPasswordErrorRef,
+        checkboxErrorRef
+    );
     users = await getData("users");
     if (users) {
         userIds = Object.keys(users);
     }
-    console.log("User:", users, "User Ids", userIds);
 }
 
 async function signUp() {
     input = getInput();
     let { nameExists, emailExists } = checkNameEmail();
-    let passwordMatch = checkPassword();
+    let passwordMatch = checkPasswordIdentical();
+    resetFormErrorsSignUp();
+    let nameValid = checkName(nameInputRef.value, nameErrorRef);
+    let emailValid = checkEmail(emailInputRef.value, emailErrorRef);
 
-    if (input.checkbox && !nameExists && !emailExists && passwordMatch) {
-        console.log("User can sign up.");
-        await postSignUpData(input.name, input.email, input.email);
+    if (
+        input.checkbox &&
+        !nameExists &&
+        !nameExists &&
+        !emailExists &&
+        passwordMatch &&
+        nameValid &&
+        emailValid
+    ) {
+        await postSignUpData(input.name, input.email, input.password);
     } else {
-        console.log("User already exists or conditions not met.");
+        renderFormValidationsError(
+            emailExists,
+            passwordMatch,
+            nameValid,
+            emailValid
+        );
+    }
+
+    function renderFormValidationsError(
+        emailExists,
+        passwordMatch,
+        nameValid,
+        emailValid
+    ) {
+        if (emailExists) toggleDialog("dialog-already-exists");
+        if (!nameValid) showError(nameErrorRef, nameInputRef);
+        if (!emailValid) showError(emailErrorRef, emailInputRef);
+        if (!passwordMatch) {
+            showError(
+                passwordErrorRef,
+                passwordInputRef,
+                "Password does not match"
+            );
+            showError(confirmPasswordErrorRef, confirmPasswordInputRef);
+        }
+        if (passwordInputRef.value.length === 0) {
+            showError(
+                passwordErrorRef,
+                passwordInputRef,
+                "Password is required"
+            );
+        }
+        if (checkboxInputRef && !checkboxInputRef.checked) {
+            showError(
+                checkboxErrorRef,
+                checkboxInputRef,
+                "You must agree to the Privacy Policy"
+            );
+        }
     }
 }
 
+function resetFormErrorsSignUp() {
+    resetFormErrors(
+        [
+            nameErrorRef,
+            emailErrorRef,
+            passwordErrorRef,
+            confirmPasswordErrorRef,
+            checkboxErrorRef,
+        ],
+        [
+            nameInputRef,
+            emailInputRef,
+            passwordInputRef,
+            confirmPasswordInputRef,
+            checkboxInputRef,
+        ]
+    );
+}
+
 function getInput() {
-    let nameInputRef = document.getElementById("name");
-    let emailInputRef = document.getElementById("email");
-    let passwordRef = document.getElementById("password");
-    let checkboxRef = document.getElementById("myCheckbox");
     return {
         name: nameInputRef.value,
         email: emailInputRef.value,
-        password: passwordRef.value,
-        checkbox: checkboxRef.checked,
+        password: passwordInputRef.value,
+        checkbox: checkboxInputRef.checked,
     };
 }
 
-function checkPassword() {
-    let password = document.getElementById("password");
-    let confirmPassword = document.getElementById("confirm-password");
-
-    return password.value === confirmPassword.value ? true : false;
+function checkPasswordIdentical() {
+    return passwordInputRef.value === confirmPasswordInputRef.value
+        ? true
+        : false;
 }
 
 function checkNameEmail() {
@@ -58,6 +144,9 @@ async function postSignUpData() {
     await postData((path = "/users"), (data = userTemplate()));
     clearInputs();
     toogleDialog("dialog-signup-succes");
+    setTimeout(() => {
+        window.location.href = "index.html";
+    }, 2000);
 }
 
 function userTemplate() {
@@ -70,11 +159,11 @@ function userTemplate() {
 }
 
 function clearInputs() {
-    document.getElementById("name").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("password").value = "";
-    document.getElementById("confirm-password").value = "";
-    document.getElementById("checkbox");
+    nameInputRef.value = "";
+    emailInputRef.value = "";
+    passwordInputRef.value = "";
+    confirmPasswordInputRef.value = "";
+    checkboxInputRef.checked = false;
 }
 
 function toogleDialog(id) {
@@ -82,6 +171,5 @@ function toogleDialog(id) {
 
     setTimeout(function () {
         document.getElementById(id).classList.remove("dialog-active");
-        window.location.href = "index.html";
     }, 2000);
 }
