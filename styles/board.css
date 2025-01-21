@@ -517,12 +517,6 @@ main {
     scale: 1.1;
 }
 
-.btn-breakline {
-    height: 24px;
-    width: 1px;
-    background-color: #d1d1d1;
-}
-
 .overlay-edit-task {
     position: relative;
     text-align: start;
@@ -535,24 +529,6 @@ main {
     max-height: 80%;
     box-shadow: var(--box-shadow);
     z-index: 2;
-}
-
-.mt16 {
-    margin-top: 16px;
-}
-
-.button-row {
-    width: 100%;
-    background-color: var(--white);
-    position: relative;
-    height: 22px;
-}
-
-.close-btn {
-    padding: 0 !important;
-    position: absolute;
-    top: 0;
-    right: 0;
 }
 
 .submit-btn {
@@ -580,14 +556,22 @@ main {
 }
 
 .add-task-overlay {
-    width: 1100px;
-    height: 800px;
-    border-radius: 30px;
+    flex-direction: column;
+    padding: 48px;
+    border-radius: 36px;
     background-color: white;
     display: flex;
-    align-items: center;
     position: relative;
     box-shadow: var(--box-shadow);
+}
+
+.close-icon {
+    position: absolute;
+    right: 48px;
+}
+
+.submit-row {
+    background-color: white;
 }
 
 .edit-title-input {
