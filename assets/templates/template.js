@@ -271,7 +271,7 @@ function taskBoardOverlay(currentTask) {
                 <span class="task-overlay-category ${currentTask.categoryText
                     .replace(" ", "-")
                     .toLowerCase()}">${currentTask.categoryText}</span>
-                <img class="task-overlay-close-icon" src="./assets/icons/close-icon-dark.png" alt="" onclick="classChangeAction('overlaver','overlaver-active','remove');">
+                <img class="close-icon" src="./assets/icons/close-icon-dark.png" alt="" onclick="classChangeAction('overlaver','overlaver-active','remove');">
             </div>
             <h1 class="task-overlay-title">
             ${currentTask.title}
@@ -326,8 +326,8 @@ function editBoardTaskHTML(currentTask) {
     <div class="task-overlay-bg">
         <form onsubmit="editTask(); return false" class="task-overlay" onclick="closeDropdown(); stopEventBubbling(event)">
             <div class="task-overlay-category-container">
-                <span id="category-text" class="task-overlay-category"" style="background-color:powderblue;">${currentTask.categoryText}</span>
-                <img class="task-overlay-close-icon" src="./assets/icons/close-icon-dark.png"
+                <span id="category-text" class="task-overlay-category" style="background-color:powderblue;">${currentTask.categoryText}</span>
+                <img class="close-icon" src="./assets/icons/close-icon-dark.png"
                     onclick="classChangeAction('overlaver','overlaver-active','remove')">
             </div>
               <div>

@@ -22,7 +22,7 @@ main {
 .search-box-desktop {
     position: relative;
     display: flex;
-    border: solid 1px;
+    outline: solid 1px var(--dark-grey);
     width: 312px;
     border-radius: 10px;
     padding: 8px 16px;
@@ -123,10 +123,11 @@ main {
     display: flex;
     height: 100%;
     gap: 16px;
+    padding: 8px 0;
     align-items: center;
     transition: all ease-in-out 125ms;
     overflow-x: auto;
-    margin-top: 16px;
+
     animation-name: task;
     animation-duration: 800ms;
     animation-iteration-count: 1;
@@ -146,6 +147,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 40px;
     gap: 8px;
     text-wrap: nowrap;
 }
@@ -337,6 +339,7 @@ main {
     justify-content: space-between;
     position: relative;
     padding: 16px;
+    margin: 0 4px;
     background-color: white;
     border-radius: 24px;
     gap: 8px;
@@ -360,7 +363,6 @@ main {
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.2);
     padding: 40px;
     transition: all 125ms ease-in-out;
     transform: translateX(100%);
@@ -376,8 +378,7 @@ main {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .task-overlay {
@@ -389,7 +390,6 @@ main {
     border-radius: 30px;
     background-color: white;
     padding: 48px 40px;
-    box-sizing: border-box;
     gap: 10px;
     box-shadow: var(--box-shadow);
     transition: all ease-in-out 125ms;
@@ -417,14 +417,14 @@ main {
     border: solid 1px;
 }
 
-.task-overlay-close-icon {
-    width: 24px;
-    height: 24px;
+.close-icon {
+    width: 16px;
+    aspect-ratio: 1;
     transition: all ease-in-out 125ms;
     cursor: pointer;
 }
 
-.task-overlay-close-icon:hover {
+.close-icon:hover {
     scale: 1.1;
 }
 
@@ -544,13 +544,11 @@ main {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
-    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.2);
-    transform: translateX(100vw);
+    transform: translateX(100%);
     z-index: 1;
     padding: 30px;
 }

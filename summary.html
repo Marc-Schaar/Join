@@ -15,6 +15,7 @@
     <script src="./assets/templates/template.js"></script>
 
     <link rel="stylesheet" href="./style.css" />
+
     <link rel="stylesheet" href="./styles/header-sidebar.css" />
     <link rel="stylesheet" href="./styles/summery.css" />
 
@@ -39,10 +40,10 @@
                 <span class="underline"></span>
             </div>
 
-            <div class="content-container center-all ">
-                <div class="summary-table column gap-s">
-                    <div class="justify-sb gap-s container-animation-2">
-                        <div onclick="goToSummaryTask('todo')" class="box gap-sm">
+            <div class="content-container center-all">
+                <div class="summary-table column gap-24">
+                    <div class="justify-sb gap-16 container-animation-2">
+                        <div onclick="goToSummaryTask('todo')" class="box gap-16">
                             <svg class="summary-icon" width="70" height="70" viewBox="0 0 70 70" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="35.3945" cy="34.8083" r="34.5" fill="#2A3647" />
@@ -55,7 +56,7 @@
                             </div>
                         </div>
 
-                        <div onclick="goToSummaryTask('done')" class="box gap-sm">
+                        <div onclick="goToSummaryTask('done')" class="box gap-16">
                             <svg class="summary-icon" width="70" height="70" viewBox="0 0 70 70" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="35" cy="35" r="34.5" fill="#2A3647" />
@@ -68,8 +69,8 @@
                         </div>
                     </div>
 
-                    <div onclick="goToSummaryTask(upcomingDeadlineScroll)" class="box gap-sm container-animation-1">
-                        <div class="align-c gap-sm">
+                    <div onclick="goToSummaryTask(upcomingDeadlineScroll)" class="box gap-16 container-animation-1">
+                        <div class="align-items-center gap-16">
                             <img class="summary-icon" src="./assets/icons/summary-urgent.png" alt="" />
                             <div class="column font-size-small"><span class="task-count" id="task-count-urgent">0</span>
                                 Urgent
@@ -82,7 +83,7 @@
                         </span>
                     </div>
 
-                    <div class="justify-sb gap-s container-animation-2">
+                    <div class="justify-sb gap-16 container-animation-2">
                         <a href="board.html" class="box column font-size small">
                             <span class="task-count" id="task-count-board">0</span> Tasks in <br />
                             Board

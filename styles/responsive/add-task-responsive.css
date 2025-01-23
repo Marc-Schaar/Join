@@ -22,6 +22,10 @@
 }
 
 @media (min-width: 1024px) {
+    form {
+        display: flex;
+    }
+
     .max-content-add-task {
         display: flex;
         padding-right: 16px;
@@ -42,22 +46,12 @@
     .task-details {
         flex: 1;
         padding-right: 20px;
-
         border-right: 1px solid var(--medium-grey);
     }
 
     .task-settings {
         flex: 1;
-        padding-left: 20px;
-    }
-
-
-    .add-task-headline {
-        font-size: 61px;
-    }
-
-    .required-info-mobile {
-        display: none;
+        padding: 0 20px;
     }
 
     .subtasks-container {

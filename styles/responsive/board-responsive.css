@@ -60,13 +60,12 @@
 
     .task-container {
         flex-direction: column;
-        padding: 8px 0;
+        padding: 16px 0;
     }
 
     .board-section {
         height: 100%;
         width: 25%;
-        padding: 0 8px 60px;
     }
 
     .task-content {
@@ -86,11 +85,6 @@
 
     .board-head-mobile {
         display: none;
-    }
-
-    .add-task-headline {
-        top: -140px;
-        left: 47px;
     }
 }
 

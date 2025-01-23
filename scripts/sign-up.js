@@ -147,14 +147,15 @@ function checkPasswordIdentical() {
 function checkNameEmail() {
     let nameExists = false;
     let emailExists = false;
+    if (userIds) {
+        userIds.forEach((id) => {
+            let currentUser = users[id];
 
-    userIds.forEach((id) => {
-        let currentUser = users[id];
-
-        if (currentUser.name === input.name) nameExists = true;
-        if (currentUser.email === input.email) emailExists = true;
-    });
-    return { nameExists, emailExists };
+            if (currentUser.name === input.name) nameExists = true;
+            if (currentUser.email === input.email) emailExists = true;
+        });
+        return { nameExists, emailExists };
+    } else return { nameExists, emailExists };
 }
 
 /**
@@ -179,6 +180,7 @@ function userTemplate() {
         email: input.email,
         password: input.password,
         color: "#29ABE3",
+        phone: "",
     };
 }
 

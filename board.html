@@ -37,10 +37,11 @@
         <div class="max-content-board">
             <section class="board-head-mobile">
                 <div class="headline-addTask-container">
-                    <h1">Board</h1>
-                        <img class="add-task-mobile-btn" src="./assets/icons/add-icon-light.png" alt=""
-                            onclick="openAddTask('todo')" />
+                    <h1>Board</h1>
+                    <img class="add-task-mobile-btn" src="./assets/icons/add-icon-light.png" alt=""
+                        onclick="openAddTask('todo')" />
                 </div>
+
                 <div class="search-box-mobile">
                     <input id="search-task-mobile" class="search-task-input-mobile" placeholder="Find Task" type="text"
                         onkeyup="filterBoardTasks('mobile')" />
@@ -134,7 +135,7 @@
         onclick="classChangeAction('add-task-overlay', 'overlaver-active', 'toggle'); clearAddTask();closeDropdown()">
         <div class="add-task-overlay" onclick="stopEventBubbling(event); closeDropdown()">
             <img onclick="classChangeAction('add-task-overlay', 'overlaver-active', 'toggle');clearAddTask();closeDropdown()"
-                class=" icon close-icon" src="./assets/icons/clear-icon-dark.png" alt="">
+                class="close-icon" src="./assets/icons/clear-icon-dark.png" alt="">
             <h1>Add Task</h1>
 
             <form id="add-task" class=" d-flex max-width" onsubmit="createTask(); return false;">
@@ -175,7 +176,7 @@
 
                     <div class="prio mt-16">
                         <span>Prio</span>
-                        <div class="d-flex row">
+                        <div class="d-flex row gap-16">
                             <button id="urgent-btn" class="btn prio-btn" type="button"
                                 onclick="addPrio('urgent'), stopEventBubbling(event)">Urgent<img id="prio-icon-urgent"
                                     src="./assets/icons/prio-urgent-icon.png" /></button>
@@ -211,16 +212,6 @@
                         <div id="subtasks-container" class="subtasks-container"></div>
                     </div>
                     <div class="required-info-mobile"><span class="required">*</span>This field is required</div>
-                </div>
-
-                <div class="add-task-action-btn">
-                    <div><span class="required">*</span>This field is required</div>
-                    <div class="d-flex btn-gap">
-                        <button type="button" class="btn clear" onclick="clearAddTask()">Clear <img
-                                src="./assets/icons/clear-icon-dark.png" alt="" /></button>
-                        <button type="submit" class="btn submit">Create Task <img src="./assets/icons/check.png"
-                                alt="" /></button>
-                    </div>
                 </div>
             </form>
 

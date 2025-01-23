@@ -19,9 +19,6 @@ main {
     font-size: 20px;
 }
 
-h1 {
-    font-size: 47px;
-}
 
 .underline {
     margin-top: 8px;
@@ -97,7 +94,7 @@ h1 {
 .summary-greeting-container {
     display: none;
     animation-name: summary-3;
-    animation-duration: 300ms;
+    animation-duration: 800ms;
 }
 
 .greeting-time {

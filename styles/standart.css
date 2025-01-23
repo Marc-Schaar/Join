@@ -1,15 +1,26 @@
-.d-flex {
+.column {
     display: flex;
+    flex-direction: column;
 }
 
-.justify-sb {
-    display: flex;
-    justify-content: space-between;
+.w-100 {
+    width: 100%;
 }
 
-.align-c {
-    display: flex;
-    align-items: center;
+.gap-8 {
+    gap: 8px
+}
+
+.gap-16 {
+    gap: 16px;
+}
+
+.gap-24 {
+    gap: 24px;
+}
+
+.gap-32 {
+    gap: 32px;
 }
 
 .center-all {
@@ -18,25 +29,47 @@
     align-items: center;
 }
 
-.column {
+.justify-content-center {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
-.gap-s {
-    gap: 8px
+.justify-sb {
+    display: flex;
+    justify-content: space-between;
 }
 
-.gap-sm {
-    gap: 16px
+.align-items-center {
+    display: flex;
+    align-items: center;
 }
 
-.gap-m {
-    gap: 24px
+.max-width {
+    max-width: 1920px;
 }
 
-.gap-l {
-    gap: 36px
+.btn-primary {
+    background-color: var(--darke-blue);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-darke-blue);
+}
+
+.btn-secundary {
+    background-color: white;
+    outline: 1px solid var(--dark-grey);
+    color: var(--dark-grey);
+}
+
+.btn-secundary:hover {
+    outline: 1px solid var(--light-blue);
+    color: var(--light-blue);
+}
+
+.position-relative {
+    position: relative;
 }
 
 .border-radius-s {
@@ -57,4 +90,8 @@
 
 .font-size-small {
     font-size: 14px;
+}
+
+.overflow-auto {
+    overflow: auto;
 }

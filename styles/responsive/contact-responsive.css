@@ -31,8 +31,9 @@
     }
 
     .contact-list:hover {
-        background-color: lightgray;
-        scale: 1.1;
+        background-color: var(--medium-grey);
+        color: black;
+        scale: 1.05;
     }
 
 

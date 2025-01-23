@@ -3,10 +3,12 @@ main {
     flex-direction: column;
     flex: 1;
     overflow: auto;
+
 }
 
 form {
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .content {
@@ -134,10 +136,10 @@ input::placeholder,
 
 .submit-row {
     background-color: var(--light-grey);
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding: 16px;
-    max-width: calc(1920px - 232px);
+    max-width: 1920px;
 }
 
 .clear {
@@ -266,7 +268,6 @@ select:focus,
 .add-task-input input {
     font-size: 16px;
     border: none;
-    /* flex: 1; */
     width: 100%;
 }
 
@@ -435,39 +436,7 @@ select option[value=""] {
     z-index: 2;
 }
 
-@keyframes field1 {
-    from {
-        transform: translateX(100vw);
-    }
 
-    to {
-        transform: translateX();
-    }
-}
-
-@keyframes field2 {
-    from {
-        transform: translateX(-100vw);
-    }
-
-    to {
-        transform: translateX();
-    }
-}
-
-.add-task-action-btn {
-    position: absolute;
-    bottom: -200px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-}
-
-.btn-gap {
-    gap: 24px;
-}
 
 .clear:hover {
     border-color: var(--light-blue);
@@ -499,12 +468,29 @@ select option[value=""] {
     background-color: var(--light-blue);
 }
 
-.required-info-mobile {
-    padding-top: 20px;
-}
 
 .add-task-mobile-action-btn {
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+@keyframes field1 {
+    from {
+        transform: translateX(100vw);
+    }
+
+    to {
+        transform: translateX();
+    }
+}
+
+@keyframes field2 {
+    from {
+        transform: translateX(-100vw);
+    }
+
+    to {
+        transform: translateX();
+    }
 }
