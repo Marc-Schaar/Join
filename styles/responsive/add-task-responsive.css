@@ -11,7 +11,7 @@
 
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     .add-task-action-btn {
         display: none;
     }
@@ -19,11 +19,29 @@
     .add-task-succes {
         margin: 0 -15%;
     }
+
+    .mobile {
+        display: flex;
+    }
+
+    .desktop {
+        display: none;
+    }
 }
 
 @media (min-width: 1024px) {
+
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: flex;
+    }
+
     form {
         display: flex;
+
     }
 
     .max-content-add-task {
@@ -56,5 +74,11 @@
 
     .subtasks-container {
         position: absolute;
+    }
+
+    .submit-row {
+        padding: 16px;
+        background-color: var(--light-grey);
+        margin: 0;
     }
 }

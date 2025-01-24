@@ -1,11 +1,19 @@
 .content {
-    padding: 25px 16px 48px 16px;
+    padding: 25px 16px 0 16px;
     text-wrap: wrap;
     background-color: var(--light-grey);
     overflow: hidden;
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--light-grey);
+    overflow: hidden;
 }
 
 .headline-back {
@@ -62,6 +70,7 @@
     flex-direction: column;
     gap: 35px;
     max-width: 1016px;
+    padding-bottom: 16px;
 }
 
 .subtitle-container {

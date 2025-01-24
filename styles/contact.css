@@ -253,7 +253,7 @@ main {
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.3);
     transition: all ease-in-out 125ms;
-    z-index: 2;
+    z-index: 10;
 }
 
 .edit-overlay-form {
@@ -262,8 +262,9 @@ main {
     flex-direction: column;
     align-items: center;
     width: 396px;
+    height: 100%;
     max-height: 650px;
-    border-radius: 30px;
+    border-radius: 32px;
     overflow: hidden;
     padding-bottom: 40px;
     background-color: white;
@@ -273,8 +274,8 @@ main {
 
 .close-edit {
     position: absolute;
-    top: 40px;
-    right: 40px;
+    top: 24px;
+    right: 24px;
     z-index: 1;
     cursor: pointer;
     transition: all ease-in-out 125ms;
@@ -334,43 +335,41 @@ main {
 }
 
 .change-color {
-    color: black;
-    position: absolute;
-    width: 75px;
-    text-align: center;
-    height: 35px;
-    font-size: 14px;
-    bottom: -38px;
-    border: solid 1px var(--dark-grey);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all ease-in-out 100ms;
-}
-
-.change-color summary {
     display: flex;
-}
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -24px;
+    padding: 8px;
+    color: black;
+    background-color: white;
+    border: solid 1px var(--dark-grey);
+    border-radius: 8px;
+    transition: all ease-in-out 100ms;
 
-.change-color summary:hover {
-    scale: 1.1;
 }
-
 
 input[type="color"] {
     -webkit-appearance: none;
-    border: 2px solid #333;
-    border-radius: 10px;
-    width: 60px;
-    height: 30px;
-    border-radius: 10px;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    aspect-ratio: 1;
     border: none;
+    border-radius: 50%;
+    padding: 0;
     cursor: pointer;
 }
 
-input[type="color"]:hover {
-    scale: 1.1;
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
 }
 
+input[type="color"]::-webkit-color-swatch {
+    border-radius: 50%;
+    border: none;
+}
 
 .edit-form-inputs {
     padding: 80px 20px 40px;
@@ -530,7 +529,6 @@ input[type="color"]:hover {
     position: absolute;
     bottom: 110px;
     right: 330px;
-
     transition: all ease-in-out 100ms;
 }
 

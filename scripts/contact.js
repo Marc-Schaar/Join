@@ -238,12 +238,12 @@ async function editOwnDetails() {
     <span style="background-color:${
         currentDetail.color
     }" class="edit-initals center">${createInititals(currentDetail.name)}
-        <details class="change-color">
-           <summary>
+        <div class="change-color">
+           <span>
               Change Color
-           </summary>
+           </span>
            <input id="edit-color" type="color" value="${currentDetail.color}">
-       </details>    
+       </div>    
                     </span>
     `;
 }
@@ -267,12 +267,12 @@ function editDetails() {
     <span style="background-color:${
         currentDetail.color
     }" class="edit-initals center">${createInititals(currentDetail.name)}
-                         <details class="change-color">
-           <summary>
+                         <div class="change-color">
+           <span>
               Change Color
-           </summary>
+           </span>
            <input id="edit-color" type="color" value="${currentDetail.color}">
-       </details>    
+       </div>    
                     </span>
     `;
 }
