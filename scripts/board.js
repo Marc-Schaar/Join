@@ -97,9 +97,14 @@ function renderSubtaskBar(task, index) {
     let amount = task.subtask.filter((c) => c.checked == true).length;
     let total = task.subtask.length;
     let result = Math.round((100 / total) * amount) + "%";
-    document.getElementById(`${task.category}-amount${index}`).innerHTML = `${amount}/${total} Subtasks`;
-    document.getElementById(`${task.category}progress-bar${index}`).classList.remove("d-none");
-    document.getElementById(`${task.category}-progress${index}`).style.width = result;
+    document.getElementById(
+        `${task.category}-amount${index}`
+    ).innerHTML = `${amount}/${total} Subtasks`;
+    document
+        .getElementById(`${task.category}progress-bar${index}`)
+        .classList.remove("d-none");
+    document.getElementById(`${task.category}-progress${index}`).style.width =
+        result;
 }
 
 /**
@@ -108,14 +113,22 @@ function renderSubtaskBar(task, index) {
  * @param {number} index - The index of the task in the list.
  */
 function renderAssignedToContacts(task, index) {
-    const assignedToContainer = document.getElementById(`${task.category}contatcs-container${index}`);
-    const numContainer = document.getElementById(`${task.category}contatcs-container${index}num`);
+    const assignedToContainer = document.getElementById(
+        `${task.category}contatcs-container${index}`
+    );
+    const numContainer = document.getElementById(
+        `${task.category}contatcs-container${index}num`
+    );
     task.assignedTo.forEach((c, i) => {
         if (i < 3) {
             assignedToContainer.innerHTML += `
-        <div class="c${i} contact center" style="background-color:${c.color}">${createInititals(c.name)}</div>`;
+        <div class="c${i} contact center" style="background-color:${
+                c.color
+            }">${createInititals(c.name)}</div>`;
         } else {
-            numContainer.innerHTML = `<div class="task-contact-length center">+${i - 2}</div>`;
+            numContainer.innerHTML = `<div class="task-contact-length center">+${
+                i - 2
+            }</div>`;
         }
     });
 }
@@ -198,7 +211,8 @@ function animationOndrag(id) {
  */
 function openTask(id) {
     currentTask = tasksArray[id];
-    document.getElementById("overlaver").innerHTML = taskBoardOverlay(currentTask);
+    document.getElementById("overlaver").innerHTML =
+        taskBoardOverlay(currentTask);
     taskPrioText();
     renderTasksArrays();
 }
@@ -236,7 +250,8 @@ function setCheck() {
  * Displays the editable values for the selected task.
  */
 function showEditTaskValues() {
-    document.getElementById("overlaver").innerHTML = editBoardTaskHTML(currentTask);
+    document.getElementById("overlaver").innerHTML =
+        editBoardTaskHTML(currentTask);
     editTaskAssignTo();
     editTaskSubtask();
     updateBtnColor(currentTask.prio);
@@ -247,7 +262,7 @@ function showEditTaskValues() {
  * Edits the task's assigned contacts.
  */
 function editTaskAssignTo() {
-    selectedContacts = []
+    selectedContacts = [];
     getSelectedContacts();
     if (currentTask.assignedTo) {
         findCheckedContacts(currentTask);
@@ -261,7 +276,9 @@ function editTaskAssignTo() {
  */
 function taskPrioText() {
     if (currentTask.prio) {
-        document.getElementById("prio").innerHTML = currentTask.prio.charAt(0).toUpperCase() + currentTask.prio.slice(1);
+        document.getElementById("prio").innerHTML =
+            currentTask.prio.charAt(0).toUpperCase() +
+            currentTask.prio.slice(1);
     } else {
         document.getElementById("prio").innerHTML = "No Prio";
     }
@@ -347,7 +364,9 @@ function deleteSubtask(i) {
  * @param {number} taskId - The ID of the task.
  */
 function openTaskMoveOptions(taskId) {
-    document.getElementById(`task-move-list${taskId}`).classList.toggle("show-drop-list");
+    document
+        .getElementById(`task-move-list${taskId}`)
+        .classList.toggle("show-drop-list");
 }
 
 /**
@@ -364,8 +383,16 @@ function filterBoardTasks(screen) {
     let feedbackById = document.getElementById("await-feedback-container");
     let doneById = document.getElementById("done-container");
     renderTasks(filterSearchTasks("todo", search), todoById, "To do");
-    renderTasks(filterSearchTasks("progress", search), progressById, "Progress");
-    renderTasks(filterSearchTasks("feedback", search), feedbackById, "Feedback");
+    renderTasks(
+        filterSearchTasks("progress", search),
+        progressById,
+        "Progress"
+    );
+    renderTasks(
+        filterSearchTasks("feedback", search),
+        feedbackById,
+        "Feedback"
+    );
     renderTasks(filterSearchTasks("done", search), doneById, "Done");
     foundTasks(screen);
 }
@@ -397,7 +424,10 @@ function filterSearchTasks(task, search) {
     let filterTasks = [];
     for (let i = 0; i < filterArray.length; i++) {
         let tasks = filterArray[i];
-        if (tasks.title.toLowerCase().includes(search) || tasks.description.toLowerCase().includes(search)) {
+        if (
+            tasks.title.toLowerCase().includes(search) ||
+            tasks.description.toLowerCase().includes(search)
+        ) {
             filterTasks.push(tasks);
         }
     }
@@ -432,4 +462,3 @@ function scrollToSection(section) {
         });
     }
 }
-

@@ -215,7 +215,6 @@ select:focus,
 .edit-dropdown {
     position: relative;
     top: 0;
-    max-height: max-content;
 }
 
 .dropdown-options li,

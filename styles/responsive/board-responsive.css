@@ -60,16 +60,16 @@
 
     .task-container {
         flex-direction: column;
+        align-items: flex-start;
         padding: 16px 0;
     }
 
     .board-section {
         height: 100%;
-        width: 25%;
+        width: 20%;
     }
 
     .task-content {
-        margin-top: 16px;
         flex-direction: row;
         height: 85%;
         gap: 8px;
@@ -85,6 +85,16 @@
 
     .board-head-mobile {
         display: none;
+    }
+
+    .task:hover {
+        rotate: z 5deg;
+        scale: 0.9;
+
+    }
+
+    .task:active {
+        rotate: z 5deg;
     }
 }
 

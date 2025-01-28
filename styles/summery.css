@@ -120,18 +120,14 @@ main {
     bottom: 0;
     left: 0;
     background-color: white;
+    pointer-events: none;
+    animation: fadeOut 2.5s 1 forwards;
 
-    animation-name: fadeOut;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
 }
 
 .summary-greeting-mobile-container {
-    animation-name: greeting-mobile;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    animation: greeting-mobile 2s 1 forwards;
+
 }
 
 @keyframes summary-1 {

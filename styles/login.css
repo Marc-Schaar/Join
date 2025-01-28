@@ -95,6 +95,7 @@ button {
     border: none;
     transition: all 0.125s ease-in-out;
     border-radius: 8px;
+    font-weight: 600;
 }
 
 

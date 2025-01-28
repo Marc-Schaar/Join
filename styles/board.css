@@ -148,7 +148,6 @@ main {
     justify-content: space-between;
     align-items: center;
     height: 40px;
-    gap: 8px;
     text-wrap: nowrap;
 }
 
@@ -349,16 +348,6 @@ main {
     transition: all ease-in-out 100ms;
 }
 
-.task:hover {
-    rotate: z 5deg;
-    scale: 0.9;
-}
-
-.task:active {
-    rotate: z 5deg;
-}
-
-
 .overlay-bg {
     height: 100%;
     width: 100%;
@@ -366,7 +355,7 @@ main {
     padding: 40px;
     transition: all 125ms ease-in-out;
     transform: translateX(100%);
-    z-index: 3;
+    z-index: 30;
 }
 
 .task-overlay-bg {
@@ -499,7 +488,6 @@ main {
 
 .task-overlay-edit-btns {
     display: flex;
-    width: 159px;
     gap: 8px;
     align-self: flex-end;
 }
@@ -544,8 +532,6 @@ main {
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
